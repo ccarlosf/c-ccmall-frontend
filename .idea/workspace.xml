@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5992a184-9096-4c5d-9529-3eccfa175b35" name="Default Changelist" comment="" />
+    <list default="true" id="5992a184-9096-4c5d-9529-3eccfa175b35" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/c-ccmall.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/config/config.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +22,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="NamedScopeManager">
     <scope name="Unnamed" pattern="file[c-ccmall]:*" />
   </component>
@@ -26,6 +36,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\慕课网\职业产品\从Java后端到全栈\Code\OneWeek\git\frontend\c-ccmall-frontend" />
       <recent name="E:\慕课网\职业产品\从Java后端到全栈\Code\OneWeek\c-ccmall\pages" />
     </key>
   </component>
@@ -55,9 +66,32 @@
       <workItem from="1572763744802" duration="5100000" />
       <workItem from="1572772627328" duration="4382000" />
     </task>
+    <task id="LOCAL-00001" summary="代码修改">
+      <created>1572791682927</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572791682927</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="代码修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="代码修改" />
   </component>
 </project>
