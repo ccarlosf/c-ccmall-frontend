@@ -1,0 +1,25 @@
+{
+  "name": "c-ccmall-frontend",
+  "version": "0.1.0",
+  "description": "C端小程序",
+  "main": "app.js",
+  "dependencies": {
+    "lin-ui" : "latest"
+  },
+  "devDependencies": {
+
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccarlosf/c-ccmall-frontend.git"
+  },
+  "author": "ccarlos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccarlosf/c-ccmall-frontend/issues"
+  },
+  "homepage": "https://github.com/ccarlosf/c-ccmall-frontend#readme"
+}
