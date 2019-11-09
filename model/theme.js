@@ -34,8 +34,8 @@ class Theme {
      * @author: ccarlos
      * @date 2019/11/9 14:54
     */
-    static async getHomeLocationA() {
-        return await Http.request({
+     static  getHomeLocationA() {
+        return  Http.request({
             url: `theme/by/names`,
             data: {
                 names: 't-2'
@@ -66,7 +66,7 @@ class Theme {
      * @author: ccarlos (与对象无关(this)static方法)
      * @date 2019/11/9 15:05
     */
-     static async getHomeLocationESpu(){
+     static getHomeLocationESpu(){
         return Theme.getThemeSpuByName(Theme.locationE)
     }
 
@@ -75,8 +75,8 @@ class Theme {
      * @author: ccarlos
      * @date 2019/11/9 15:04
      */
-     static async getThemeSpuByName(name) {
-        return await Http.request({
+     static getThemeSpuByName(name) {
+        return Http.request({
             url: `theme/name/${name}/with_spu`
         })
     }

@@ -24,17 +24,24 @@ Page({
 
     async initAllData() {
         const theme = new Theme()
+        //获取初试数据，数组
         await theme.getThemes()
 
         const themeA = await theme.getHomeLocationA()
         const themeE=await theme.getHomeLocationE()
-        const themeESpu=await Theme.getHomeLocationESpu()
-
+        let themeESpu=[]
+        if(themeE.online){
+            const data=await Theme.getHomeLocationESpu()
+            if(data){
+                themeESpu=data.spu_list.slice(0,8)
+            }
+        }
         const bannerB = await Banner.getHomeLocationB()
         const grid=await Category.getHomeLocationC()
         this.setData({
             themeA,
             themeE,
+            themeESpu,
             bannerB,
             grid
         })
