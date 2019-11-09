@@ -26,8 +26,8 @@
     height: 60rpx;
 }
 
-/*
 .text{
-    width: 120rpx;
-    height: 120rpx;
-}*/
+    margin-top: 6rpx;
+    font-size: 24rpx;
+    color: #333333;
+}
