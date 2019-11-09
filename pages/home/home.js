@@ -23,11 +23,18 @@ Page({
   },
 
     async initAllData() {
-        const themeA = await Theme.getHomeLocationA()
+        const theme = new Theme()
+        await theme.getThemes()
+
+        const themeA = await theme.getHomeLocationA()
+        const themeE=await theme.getHomeLocationE()
+        const themeESpu=await Theme.getHomeLocationESpu()
+
         const bannerB = await Banner.getHomeLocationB()
         const grid=await Category.getHomeLocationC()
         this.setData({
-            themeA: themeA[0],
+            themeA,
+            themeE,
             bannerB,
             grid
         })
