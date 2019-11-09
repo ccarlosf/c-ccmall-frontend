@@ -25,7 +25,7 @@ Page({
     async initAllData() {
         const themeA = await Theme.getHomeLocationA()
         const bannerB = await Banner.getHomeLocationB()
-        const grid=await Category.getGridCategory()
+        const grid=await Category.getHomeLocationC()
         this.setData({
             themeA: themeA[0],
             bannerB,
