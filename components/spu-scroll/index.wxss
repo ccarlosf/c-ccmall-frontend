@@ -12,12 +12,12 @@
 }
 
 .price-unit{
-    font-size: 28rpx !important;
+    font-size: 24rpx !important;
     color: #157658 !important;
 }
 
 .price-value{
-    font-size: 32rpx !important;
+    font-size: 26rpx !important;
     color: #157658 !important;
 }
 
@@ -43,6 +43,12 @@
     font-size: 20rpx;
     color: #666666;
     margin-top: 20rpx;
+
+    /** 控制文字不换行 */
+   /* width: 150rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;*/
 }
 
 .spu-img{
