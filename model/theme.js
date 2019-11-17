@@ -71,6 +71,15 @@ class Theme {
     }
 
     /**
+     * @description: 获取主题H层数据
+     * @author: ccarlos
+     * @date 2019/11/17 18:12
+    */
+    getHomeLocationH(){
+        return this.themes.find(t=>t.name===Theme.locationH)
+    }
+
+    /**
      * @description: 获取第五层的主题数据(含Spu数据)
      * @author: ccarlos (与对象无关(this)static方法)
      * @date 2019/11/9 15:05
