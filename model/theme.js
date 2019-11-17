@@ -62,6 +62,15 @@ class Theme {
     }
 
     /**
+     * @description: 获取Banner Theme主题信息
+     * @author: ccarlos
+     * @date 2019/11/17 14:12
+    */
+    async getHomeLocationF(){
+        return this.themes.find(t=>t.name===Theme.locationF)
+    }
+
+    /**
      * @description: 获取第五层的主题数据(含Spu数据)
      * @author: ccarlos (与对象无关(this)static方法)
      * @date 2019/11/9 15:05

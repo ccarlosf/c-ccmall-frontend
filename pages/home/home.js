@@ -36,13 +36,18 @@ Page({
                 themeESpu = data.spu_list.slice(0,8)
             }
         }
+
+        const themeF=await theme.getHomeLocationF()
+        console.log("themeF:"+JSON.stringify(themeF))
+
         const bannerB = await Banner.getHomeLocationB()
         const grid=await Category.getHomeLocationC()
         this.setData({
             themeA,
+            bannerB,
             themeE,
             themeESpu,
-            bannerB,
+            themeF,
             grid
         })
     },
