@@ -17,6 +17,8 @@ class Spu{
     //   分页数据:a.正在加载 b.加载完成 c.没有更多的数据
     //5. 上滑页面触底 加载 避免用户重复发请求 redis 数据锁
     //   按钮 button 防抖 截流 禁用 倒计时 loading
+    // start count,10 ,0, 10, 20
+    // 类 函数 class JS 主流语言 思维方式
     static async getLatest(){
         Http.request(``)
     }
