@@ -25,4 +25,5 @@
 
     <image src="{{themeF.entrance_img}}" class="quality"></image>
 
+    <s-hot-list banner="{{bannerG}}"></s-hot-list>
 </view>

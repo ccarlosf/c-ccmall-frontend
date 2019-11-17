@@ -7,6 +7,7 @@ import {Http} from "../utils/Http";
 
 class Banner {
     static LocationB = 'b-1'
+    static LocationG = 'b-2'
 
     /**
      * @description: 获取第二层Banner轮播图数据
@@ -16,6 +17,11 @@ class Banner {
     static async getHomeLocationB() {
         return await Http.request({
             url: `banner/name/${Banner.LocationB}`
+        })
+    }
+    static async getHomeLocationG(){
+        return await Http.request({
+            url: `banner/name/${Banner.LocationG}`
         })
     }
 }

@@ -48,7 +48,7 @@ class Theme {
      * @author: ccarlos
      * @date 2019/11/9 14:54
      */
-    async getHomeLocationA(){
+    getHomeLocationA(){
         return this.themes.find(t=>t.name==Theme.locationA)
     }
 
@@ -57,7 +57,7 @@ class Theme {
      * @author: ccarlos
      * @date 2019/11/9 15:02
     */
-    async getHomeLocationE(){
+    getHomeLocationE(){
         return this.themes.find(t=>t.name===Theme.locationE)
     }
 
@@ -66,7 +66,7 @@ class Theme {
      * @author: ccarlos
      * @date 2019/11/17 14:12
     */
-    async getHomeLocationF(){
+    getHomeLocationF(){
         return this.themes.find(t=>t.name===Theme.locationF)
     }
 
