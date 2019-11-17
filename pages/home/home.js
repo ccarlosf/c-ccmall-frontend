@@ -22,6 +22,10 @@ Page({
         this.initAllData()
     },
 
+    async initBottomSouList(){
+
+    },
+
     async initAllData() {
         const theme = new Theme()
         //获取初试数据，数组
