@@ -4,6 +4,7 @@
  * @date 2019/11/17 21:02
  */
 import {Http} from "./Http";
+import boolean from "../miniprogram_npm/lin-ui/common/async-validator/validator/boolean";
 
 class Paging {
 
@@ -14,6 +15,7 @@ class Paging {
     req
     locker = false
     url
+    moreData
 
     /**
      * @description: 构造器
@@ -50,7 +52,25 @@ class Paging {
      * @date 2019/11/17 21:26
      */
     _actualGetData() {
-        Http.request()
+        const req = this._getCurrentReq()
+        let paging = Http.request(req)
+        if (!paging) {
+            return null
+        }
+        if (paging.total === 0) {
+            return {
+                empty: true,
+                items: [],
+                moreData: false,
+                accumulator: []
+            }
+        }
+
+         this.moreData=this._moreData(paging.total_page,paging.page)
+    }
+
+    _moreData(totalPage, pageNum) {
+        return pageNum < tatalPage - 1
     }
 
     /**
