@@ -4,7 +4,6 @@
  * @date 2019/11/17 21:02
  */
 import {Http} from "./Http";
-import boolean from "../miniprogram_npm/lin-ui/common/async-validator/validator/boolean";
 
 class Paging {
 
