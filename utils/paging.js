@@ -74,7 +74,7 @@ class Paging {
         if (this.moreData) {
             this.start += this.count
         }
-        this.accumulator(paging.items)
+        this._accumulate(paging.items)
         return {
             empty: false,
             items: paging.items,
@@ -131,6 +131,11 @@ class Paging {
         return true
     }
 
+    /**
+     * @description: 释放锁
+     * @author: ccarlos
+     * @date 2019/11/21 22:44
+    */
     _releaseLocker() {
         this.locker = false
     }
