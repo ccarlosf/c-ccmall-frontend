@@ -3,7 +3,9 @@
  * @author: ccarlos
  * @date 2019/11/17 20:48
 */
-class Spu{
+import {Paging} from "../utils/paging";
+
+class SpuPaging{
 
     /**
      * @description: 获取商品最新列表
@@ -19,7 +21,13 @@ class Spu{
     //   按钮 button 防抖 截流 禁用 倒计时 loading
     // start count,10 ,0, 10, 20
     // 类 函数 class JS 主流语言 思维方式
-    static async getLatest(){
-        Http.request(``)
+    static getLatestPaging(){
+        return new Paging({
+            url: `spu/latest`
+        },3)
     }
+}
+
+export {
+    SpuPaging
 }

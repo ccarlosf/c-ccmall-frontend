@@ -3,6 +3,7 @@ import {config} from "../config/config";
 import {Theme} from "../../model/theme";
 import {Banner} from "../../model/banner";
 import {Category} from "../../model/category";
+import {SpuPaging} from "../../model/spu-paging";
 
 Page({
 
@@ -12,7 +13,8 @@ Page({
     data: {
         themeA: null,
         bannerB: null,
-        grid: []
+        grid: [],
+        activityD:null
     },
 
     /**
@@ -20,10 +22,20 @@ Page({
      */
     onLoad: async function (options) {
         this.initAllData()
+        this.initBottomSouList()
     },
 
+    /**
+     * @description: 初始化底部分页对象数据
+     * @author: ccarlos
+     * @date 2019/11/20 23:21
+    */
     async initBottomSouList(){
-
+        const paging=await SpuPaging.getLatestPaging()
+        const data=paging.getMoreData()
+        if(!data){
+            return
+        }
     },
 
     async initAllData() {

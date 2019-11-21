@@ -15,6 +15,7 @@ class Paging {
     locker = false
     url
     moreData
+    accumulator = []
 
     /**
      * @description: 构造器
@@ -34,15 +35,19 @@ class Paging {
      * @author: ccarlos
      * @date 2019/11/17 21:09
      */
-    getMoreData() {
+    async getMoreData() {
+        if(!this.moreData){
+            return
+        }
         //getLocker
         //request
         //releaseLocker
         if (!this._getLocker()) {
             return
         }
-        this._actualGetData()
+        const data=await this._actualGetData()
         this._releaseLocker()
+        return data
     }
 
     /**
@@ -50,9 +55,9 @@ class Paging {
      * @author: ccarlos
      * @date 2019/11/17 21:26
      */
-    _actualGetData() {
+   async _actualGetData() {
         const req = this._getCurrentReq()
-        let paging = Http.request(req)
+        let paging =await Http.request(req)
         if (!paging) {
             return null
         }
@@ -65,10 +70,34 @@ class Paging {
             }
         }
 
-         this.moreData=this._moreData(paging.total_page,paging.page)
+        this.moreData = Paging._moreData(paging.total_page, paging.page)
+        if (this.moreData) {
+            this.start += this.count
+        }
+        this.accumulator(paging.items)
+        return {
+            empty: false,
+            items: paging.items,
+            moreData: this.moreData,
+            accumulator:this.accumulator
+        }
     }
 
-    _moreData(totalPage, pageNum) {
+    /**
+     * @description: 累加器
+     * @author: ccarlos
+     * @date 2019/11/20 23:14
+    */
+    _accumulate(items){
+        this.accumulator=this.accumulator.concat(items)
+    }
+
+    /**
+     * @description: 判断是否有更多数据
+     * @author: ccarlos
+     * @date 2019/11/20 23:14
+    */
+    static _moreData(totalPage, pageNum) {
         return pageNum < tatalPage - 1
     }
 
@@ -107,4 +136,8 @@ class Paging {
     }
 
 
+}
+
+export {
+    Paging
 }
