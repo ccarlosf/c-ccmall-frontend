@@ -14,7 +14,7 @@ class Paging {
     req
     locker = false
     url
-    moreData
+    moreData=true
     accumulator = []
 
     /**
@@ -98,7 +98,7 @@ class Paging {
      * @date 2019/11/20 23:14
     */
     static _moreData(totalPage, pageNum) {
-        return pageNum < tatalPage - 1
+        return pageNum < totalPage - 1
     }
 
     /**
@@ -109,7 +109,7 @@ class Paging {
     _getCurrentReq() {
         let url = this.url
         const params = `start=${this.start}&count=${this.count}`
-        if (url.indexOf('?') !== -1) {
+        if (url.includes('?') ) {
             url += '&' + params
         } else {
             url += '?' + params

@@ -31,11 +31,13 @@ Page({
      * @date 2019/11/20 23:21
     */
     async initBottomSouList(){
-        const paging=await SpuPaging.getLatestPaging()
-        const data=paging.getMoreData()
+        const paging= SpuPaging.getLatestPaging()
+        const data = await paging.getMoreData()
         if(!data){
             return
         }
+        //瀑布流累加数据
+        wx.lin.renderWaterFlow(data.items)
     },
 
     async initAllData() {
