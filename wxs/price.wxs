@@ -11,10 +11,16 @@
 */
 function mainPrice(price,discountPrice) {
     if(!discountPrice){
-        return price
+        return {
+            price:price,
+            display:true
+        }
     }
     else {
-        return discountPrice
+        return {
+         display: true,
+         price: discountPrice
+        }
     }
 }
 
@@ -25,9 +31,15 @@ function mainPrice(price,discountPrice) {
 */
 function slashedPrice(price,discountPrice) {
     if(discountPrice){
-        return price
+        return{
+            display: true,
+            price:price
+        }
     }else {
-        return
+        return{
+            display: false,
+            price:null
+        }
     }
 }
 
