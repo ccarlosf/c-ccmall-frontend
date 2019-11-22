@@ -7,7 +7,8 @@
                 <l-tag l-class="l-tag" size="super-mini">{{item}}</l-tag>
             </block>
         </view>
-        <l-price></l-price>
-        <text></text>
+        <l-price value="{{data.price}}"></l-price>
+        <l-price deleted value="{{data.discount_price}}"></l-price>
+        <text>{{data.subtitle}}</text>
     </view>
 </view>
