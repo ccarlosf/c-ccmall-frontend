@@ -34,6 +34,7 @@ Component({
    */
   methods: {
       onImgLoad(event) {
+          console.log("123")
           const {width, height} = event.detail
           this.setData({
               w: 340,
