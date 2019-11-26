@@ -5,8 +5,8 @@
     <view class="container-container">
         <text class="title">{{data.title}}</text>
         <view class="tags">
-            <block wx:for="{{tags}}">
-                <l-tag l-class="l-tag" size="super-mini">{{item}}</l-tag>
+            <block wx:for="{{tags}}" wx:key="{{index}}">
+                <l-tag type="reading" l-class="l-tag" size="super-mini">{{item}}</l-tag>
             </block>
         </view>
 

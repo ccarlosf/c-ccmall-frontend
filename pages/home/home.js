@@ -16,7 +16,8 @@ Page({
         bannerB: null,
         grid: [],
         activityD: null,
-        spuPaging: null
+        spuPaging: null,
+        loadingType: 'loading'
     },
 
     /**
@@ -24,7 +25,7 @@ Page({
      */
     onLoad: async function (options) {
         this.initAllData()
-        this.initBottomSouList()
+        this.initBottomSpuList()
     },
 
     /**
@@ -32,7 +33,7 @@ Page({
      * @author: ccarlos
      * @date 2019/11/20 23:21
     */
-    async initBottomSouList(){
+    async initBottomSpuList(){
         const paging= SpuPaging.getLatestPaging()
         this.data.spuPaging = paging
         const data = await paging.getMoreData()
@@ -41,6 +42,11 @@ Page({
         }
         //瀑布流累加数据
         wx.lin.renderWaterFlow(data.items)
+        if(!data.moreData){
+            this.setData({
+                loadingType:'end'
+            })
+        }
     },
 
     async initAllData() {
@@ -123,6 +129,11 @@ Page({
             return
         }
         wx.lin.renderWaterFlow(data.items)
+        if(!data.moreData){
+            this.setData({
+                loadingType:'end'
+            })
+        }
     },
 
     /**
