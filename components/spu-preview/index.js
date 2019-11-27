@@ -33,6 +33,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+      /**
+       * @description: 图片比例缩放
+       * @author: ccarlos
+       * @date 2019/11/27 21:31
+      */
       onImgLoad(event) {
           console.log("123")
           const {width, height} = event.detail
@@ -40,6 +45,21 @@ Component({
               w: 340,
               h: 340 * height / width
           })
+      },
+
+      /**
+       * @description: 点击商品触发函数
+       * @author: ccarlos
+       * @date 2019/11/27 21:31
+      */
+      onItemTap(event){
+          console.log("点击商品触发函数event"+JSON.stringify(event))
+          const pid =event.currentTarget.dataset.pid
+          wx.navigateTo({
+              url: `/pages/detail/detail?pid=${pid}`
+          })
       }
+      //业务型组件
+      //通用型组件
   }
 })

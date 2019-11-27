@@ -1,4 +1,6 @@
 <wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="s"></wxs>
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
+
 <view class="container">
     <image class="title" src="{{theme.title_img}}"></image>
     <scroll-view scroll-x class="scroll-view">
@@ -11,7 +13,7 @@
                             autofix
                             l-value-class="price-value"
                             l-unit-class="price-unit"
-                            value="{{item.price}}">
+                            value="{{p.mainPrice(item.price,item.discount_price).price}}">
                     </l-price>
                 </view>
             </block>
