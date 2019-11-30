@@ -4,6 +4,7 @@
  * @date 2019/11/28 23:39
 */
 import {Matrix} from "./matrix";
+import {Fence} from "./fence";
 
 class FenceGroup {
     spu
@@ -26,10 +27,29 @@ class FenceGroup {
     */
     initFences(){
         const matrix=this._createMatrix(this.skuList)
+        const fences = []
+        let currentJ = -1
         matrix.forEach((element,i,j)=>{
-
+            if (currentJ !== j) {
+                //开启一个新列，需要创建一个新的fence
+                currentJ = j
+                // createFence
+                fences[currentJ]=this._createFence(element)
+            }
+            fences[currentJ].pushValueTitle(element.value)
         })
         //for
+    }
+
+    /**
+     * @description: 创建fence 规格行
+     * @author: ccarlos
+     * @date 2019/11/30 23:22
+    */
+    _createFence(element){
+        const fence=new Fence()
+        // fence.pushValueTitle(element.value)
+        return fence
     }
 
     /**
