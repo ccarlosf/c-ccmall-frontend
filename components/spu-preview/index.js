@@ -39,7 +39,6 @@ Component({
        * @date 2019/11/27 21:31
       */
       onImgLoad(event) {
-          console.log("123")
           const {width, height} = event.detail
           this.setData({
               w: 340,
