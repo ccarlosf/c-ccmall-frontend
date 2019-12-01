@@ -9,6 +9,8 @@ class Fence {
 
     cells = []
     specs
+    title
+    id
 
     /**
      * @description: 构造函数
@@ -17,6 +19,8 @@ class Fence {
      */
     constructor(specs) {
         this.specs = specs
+        this.title = specs[0].key
+        this.id = specs[0].key_id
     }
 
     /**
