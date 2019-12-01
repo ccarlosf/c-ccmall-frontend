@@ -25,7 +25,7 @@ class FenceGroup {
      * @author: ccarlos
      * @date 2019/11/30 22:38
     */
-    /*initFences1(){
+   /* initFences1(){
         const matrix=this._createMatrix(this.skuList)
         const fences = []
         let currentJ = -1
@@ -36,6 +36,7 @@ class FenceGroup {
                 // createFence
                 fences[currentJ]=this._createFence(element)
             }
+            // fences[currentJ].cells(element)
             fences[currentJ].pushValueTitle(element.value)
         })
         console.log(fences)
