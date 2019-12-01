@@ -25,7 +25,7 @@ class FenceGroup {
      * @author: ccarlos
      * @date 2019/11/30 22:38
     */
-    initFences(){
+    initFences1(){
         const matrix=this._createMatrix(this.skuList)
         const fences = []
         let currentJ = -1
@@ -46,7 +46,7 @@ class FenceGroup {
      * @author: ccarlos
      * @date 2019/12/1 10:53
     */
-    initFences1(){
+    initFences(){
         const matrix=this._createMatrix(this.skuList)
         const fences = []
         const AT =matrix.transpose()
