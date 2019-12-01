@@ -3,9 +3,11 @@
  * @author: ccarlos
  * @date 2019/11/28 23:38
 */
+import {Cell} from "./cell";
+
 class Fence {
 
-    valueTitles = []
+    cells = []
     specs
 
     /**
@@ -24,7 +26,9 @@ class Fence {
      */
     init() {
         this.specs.forEach(s => {
-            this.pushValueTitle(s.value)
+            // this.pushValueTitle(s.value)
+            const cell = new Cell(s)
+            this.cells.push(cell)
         })
     }
 
@@ -33,9 +37,9 @@ class Fence {
      * @author: ccarlos
      * @date 2019/11/30 23:14
     */
-    pushValueTitle(title){
+    /*pushValueTitle(title){
         this.valueTitles.push(title)
-    }
+    }*/
 }
 
 export {

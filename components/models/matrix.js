@@ -38,7 +38,7 @@ class Matrix {
      * @author: ccarlos
      * @date 2019/11/30 22:53
      */
-    forEach(cb) {
+    each(cb) {
         //return
         for (let j = 0; j < this.colsNum; j++) {
             for (let i = 0; i < this.rowsNum; i++) {
