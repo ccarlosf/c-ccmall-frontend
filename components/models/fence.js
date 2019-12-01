@@ -29,7 +29,23 @@ class Fence {
      * @date 2019/12/1 10:57
      */
     init() {
+        this._initCells()
+    }
+
+    /**
+     * @description: 初始化Cells
+     * @author: ccarlos
+     * @date 2019/12/1 21:41
+     */
+    _initCells() {
+        //TODO
         this.specs.forEach(s => {
+            const existed = this.cells.some(c => {
+                return c.id === s.value_id
+            })
+            if (existed) {
+                return
+            }
             // this.pushValueTitle(s.value)
             const cell = new Cell(s)
             this.cells.push(cell)
