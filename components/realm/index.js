@@ -41,7 +41,8 @@ Component({
         return
       }
       const fencesGroup =new FenceGroup(spu)
-      fencesGroup.initFences()
+      // fencesGroup.initFences()
+      fencesGroup.initFences1()
     }
   },
 

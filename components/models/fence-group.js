@@ -42,6 +42,24 @@ class FenceGroup {
     }
 
     /**
+     * @description: 使用转置方法创建fences
+     * @author: ccarlos
+     * @date 2019/12/1 10:53
+    */
+    initFences1(){
+        const matrix=this._createMatrix(this.skuList)
+        const fences = []
+        const AT =matrix.transpose()
+        console.log(AT)
+        AT.forEach(r=>{
+            const fence=new Fence(r)
+            fence.init()
+            fences.push(fence)
+        })
+        console.log(fences)
+    }
+
+    /**
      * @description: 创建fence 规格行
      * @author: ccarlos
      * @date 2019/11/30 23:22
