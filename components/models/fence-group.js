@@ -38,7 +38,7 @@ class FenceGroup {
             }
             fences[currentJ].pushValueTitle(element.value)
         })
-        //for
+        console.log(fences)
     }
 
     /**
