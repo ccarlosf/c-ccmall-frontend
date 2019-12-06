@@ -43,6 +43,7 @@ Component({
       const fencesGroup =new FenceGroup(spu)
       fencesGroup.initFences()
       // fencesGroup.initFences1()
+        this.bindInitData(fencesGroup)
     }
   },
 
@@ -50,6 +51,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+      /**
+       * @description: 绑定fenceGroup初始化数据
+       * @author: ccarlos
+       * @date 2019/12/6 21:20
+      */
+      bindInitData(fenceGroup){
+          this.setData({
+              fences: fenceGroup.fences
+          })
+      }
   }
 })

@@ -9,6 +9,7 @@ import {Fence} from "./fence";
 class FenceGroup {
     spu
     skuList = []
+    fences = []
 
     /**
      * @description: 构造函数
@@ -57,6 +58,7 @@ class FenceGroup {
             fence.init()
             fences.push(fence)
         })
+        this.fences = fences
         console.log(fences)
     }
 
