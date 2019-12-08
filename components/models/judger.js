@@ -39,8 +39,8 @@ class Judger {
      * @author: ccarlos
      * @date 2019/12/8 16:57
      */
-    judge(cell) {
-        this._changeCellStatus(cell)
+    judge(cell, x, y) {
+        this._changeCellStatus(cell, x, y)
     }
 
     /**
@@ -48,12 +48,14 @@ class Judger {
      * @author: ccarlos
      * @date 2019/12/8 16:57
      */
-    _changeCellStatus(cell) {
+    _changeCellStatus(cell, x, y) {
         if (cell.status === CellStatus.WAITING) {
-            cell.status = CellStatus.SELECTED
+            // cell.status = CellStatus.SELECTED
+            this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
         }
         if (cell.status === CellStatus.SELECTED) {
-            cell.status = CellStatus.WAITING
+            // cell.status = CellStatus.WAITING
+            this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
         }
     }
 }
