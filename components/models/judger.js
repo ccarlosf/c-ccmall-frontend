@@ -3,6 +3,8 @@
  * @author: ccarlos
  * @date 2019/12/8 12:16
  */
+import {SkuCode} from "./sku-code";
+
 class Judger {
 
     fenceGroup
@@ -15,6 +17,7 @@ class Judger {
     */
     constructor(fenceGroup) {
         this.fenceGroup = fenceGroup
+        this.initPathDict()
     }
 
     /**
@@ -24,7 +27,11 @@ class Judger {
     */
     initPathDict(){
         this.fenceGroup.spu.sku_list.forEach(s=>{
-            s.code
+            const skuCode=new SkuCode(s.code)
         })
     }
+}
+
+export {
+    Judger
 }

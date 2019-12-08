@@ -3,11 +3,13 @@
  * @author: ccarlos
  * @date 2019/12/8 12:23
  */
+import {format} from "../../miniprogram_npm/lin-ui/common/async-validator/util";
+import {combination} from "../../utils/util";
 
 class SkuCode {
     code
     spuId
-    segments = []
+    totalSegments = []
 
     /**
      * @description: 构造函数
@@ -16,6 +18,7 @@ class SkuCode {
      */
     constructor(code) {
         this.code = code
+        this._splitToSegments()
     }
 
     /**
@@ -30,6 +33,15 @@ class SkuCode {
         this.spuId = spuAndSpec[0]
 
         const specCodeArray=spuAndSpec[1].split('#')
+        const length = specCodeArray.length
 
+        for (let i = 1; i <= length; i++) {
+            const segments = combination(specCodeArray, i)
+            console.log(segments)
+        }
     }
+}
+
+export {
+    SkuCode
 }
