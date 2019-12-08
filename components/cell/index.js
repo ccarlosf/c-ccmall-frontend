@@ -21,6 +21,10 @@ Component({
     onTap(event){
       this.triggerEvent('celltap',{
         //子组件向父组件传参
+        cell:this.properties.cell
+      },{
+        bubbles:true,
+        composed:true
       })
     }
   }
