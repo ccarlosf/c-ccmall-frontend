@@ -3,9 +3,12 @@
  * @author: ccarlos
  * @date 2019/12/1 13:09
 */
+import {CellStatus} from "../core/enum";
+
 class Cell {
     title
     id
+    status = CellStatus.WAITING
 
     /**
      * @description: 构造函数
