@@ -14,7 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    judger: Object
   },
 
   /**
@@ -45,6 +45,7 @@ Component({
       fencesGroup.initFences()
       // fencesGroup.initFences1()
       const judger = new Judger(fencesGroup)
+      this.data.judger = judger
         this.bindInitData(fencesGroup)
     }
   },
@@ -65,7 +66,14 @@ Component({
       },
 
     onCellTap(event) {
-        console.log(event)
+      // console.log(event)
+      const cell = event.detail.cell
+      const judger = this.data.judger
+
+      judger.judge(cell)
+      this.setData({
+        fences: judger.fenceGroup.fences
+      })
     }
 
   }
