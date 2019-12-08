@@ -65,9 +65,15 @@ Component({
           })
       },
 
+    /**
+     * @description: 监听onCellTap事件函数
+     * @author: ccarlos
+     * @date 2019/12/8 20:12
+     */
     onCellTap(event) {
       // console.log(event)
       const cell = event.detail.cell
+      console.log(event.detail)
       const judger = this.data.judger
 
       judger.judge(cell)
