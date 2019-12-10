@@ -6,6 +6,7 @@
 import {SkuCode} from "./sku-code";
 import {CellStatus} from "../core/enum";
 import {SkuPending} from "./sku-pending";
+import {Joiner} from "../../utils/joiner";
 
 class Judger {
 
@@ -53,17 +54,23 @@ class Judger {
      */
     judge(cell, x, y) {
         this._changeCurrentCellStatus(cell, x, y)
-        this.fenceGroup.eachCell(this._changeOtherCellStatus)
+        this.fenceGroup.eachCell((cell,x,y)=>{
+            console.log(this)
+            const path=this._findPotentialPath(cell, x, y)
+            console.log(path)
+        })
     }
 
     /**
-     * @description: 处理其它的Cell状态
+     * @description: 处理其它的Cell状态 使用上面的箭头函数后，注释了
      * @author: ccarlos
      * @date 2019/12/8 20:43
      */
-    _changeOtherCellStatus(cell, x, y) {
-
-    }
+    /*_changeOtherCellStatus(cell, x, y) {
+        console.log(this)
+        const path=this._findPotentialPath(cell, x, y)
+        console.log(path)
+    }*/
 
     /**
      * @description: 寻找潜在路径函数
@@ -71,15 +78,24 @@ class Judger {
      * @date 2019/12/10 20:55
      */
     _findPotentialPath(cell, x, y) {
+        const joiner = new Joiner('#')
         for (let i = 0; i < this.fenceGroup.fences.length; i++) {
+            const selected = this.skuPending.findSelectedCellByX(i)
             if(x===i){
                 //当前行
                 //cell id 1-13
                 const cellCode = this._getCellCode(cell.spec)
+                joiner.join(cellCode)
             }else {
-
+                //其他行
+                if (selected) {
+                    //selected cell path 3-26
+                    const selectedCellCode = this._getCellCode(selected.spec)
+                    joiner.join(selectedCellCode)
+                }
             }
         }
+        return joiner.getStr()
     }
 
     /**

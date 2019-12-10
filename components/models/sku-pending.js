@@ -32,6 +32,15 @@ class SkuPending {
     removeCell(x) {
         this.pending[x] = null
     }
+
+    /**
+     * @description: 寻找其它行其它已选的Cell
+     * @author: ccarlos
+     * @date 2019/12/10 21:32
+    */
+    findSelectedCellByX(x){
+        return this.pending[x]
+    }
 }
 
 export {
