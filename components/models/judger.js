@@ -40,15 +40,36 @@ class Judger {
      * @date 2019/12/8 16:57
      */
     judge(cell, x, y) {
-        this._changeCellStatus(cell, x, y)
+        this._changeCurrentCellStatus(cell, x, y)
+        this.fenceGroup.eachCell(this._changeOtherCellStatus)
     }
 
     /**
-     * @description: 处理cell状态
+     * @description: 处理其它的Cell状态
+     * @author: ccarlos
+     * @date 2019/12/8 20:43
+     */
+    _changeOtherCellStatus(cell, x, y) {
+
+    }
+
+    /**
+     * @description: 寻找潜在路径函数
+     * @author: ccarlos
+     * @date 2019/12/10 20:55
+     */
+    _findPotentialPath(cell, x, y) {
+        for (let i = 0; i < this.fenceGroup.fences.length; i++) {
+
+        }
+    }
+
+    /**
+     * @description: 处理当前cell状态
      * @author: ccarlos
      * @date 2019/12/8 16:57
      */
-    _changeCellStatus(cell, x, y) {
+    _changeCurrentCellStatus(cell, x, y) {
         if (cell.status === CellStatus.WAITING) {
             // cell.status = CellStatus.SELECTED
             this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
