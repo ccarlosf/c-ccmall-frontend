@@ -5,11 +5,13 @@
  */
 import {SkuCode} from "./sku-code";
 import {CellStatus} from "../core/enum";
+import {SkuPending} from "./sku-pending";
 
 class Judger {
 
     fenceGroup
     pathDict = []
+    skuPending
 
     /**
      * @description: 构造函数
@@ -18,7 +20,17 @@ class Judger {
     */
     constructor(fenceGroup) {
         this.fenceGroup = fenceGroup
+        this._initSkuPending()
         this._initPathDict()
+    }
+
+    /**
+     * @description: 初始化SkuPending对象
+     * @author: ccarlos
+     * @date 2019/12/10 21:14
+     */
+    _initSkuPending() {
+        this.skuPending = new SkuPending()
     }
 
     /**
@@ -60,8 +72,23 @@ class Judger {
      */
     _findPotentialPath(cell, x, y) {
         for (let i = 0; i < this.fenceGroup.fences.length; i++) {
+            if(x===i){
+                //当前行
+                //cell id 1-13
+                const cellCode = this._getCellCode(cell.spec)
+            }else {
 
+            }
         }
+    }
+
+    /**
+     * @description: 获取sku编码函数
+     * @author: ccarlos
+     * @date 2019/12/10 21:25
+    */
+    _getCellCode(spec){
+        return spec.key_id + '-' + spec.value_id
     }
 
     /**
@@ -73,10 +100,12 @@ class Judger {
         if (cell.status === CellStatus.WAITING) {
             // cell.status = CellStatus.SELECTED
             this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
+            this.skuPending.insertCell(cell, x)
         }
         if (cell.status === CellStatus.SELECTED) {
             // cell.status = CellStatus.WAITING
             this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
+            this.skuPending.removeCell(x)
         }
     }
 }

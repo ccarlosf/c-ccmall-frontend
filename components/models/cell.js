@@ -9,6 +9,7 @@ class Cell {
     title
     id
     status = CellStatus.WAITING
+    spec
 
     /**
      * @description: 构造函数
@@ -18,7 +19,17 @@ class Cell {
     constructor(spec){
         this.title=spec.value
         this.id = spec.value_id
+        this.spec
     }
+
+    /**
+     * @description: 获取sku编码函数
+     * @author: ccarlos
+     * @date 2019/12/10 21:22
+    */
+   /* getCellCode(){
+        return this.spec.key_id + '-' + this.spec.value_id
+    }*/
 }
 
 export {
