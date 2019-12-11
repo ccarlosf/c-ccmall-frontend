@@ -41,6 +41,19 @@ class SkuPending {
     findSelectedCellByX(x){
         return this.pending[x]
     }
+
+    /**
+     * @description: 判断cell是否选中
+     * @author: ccarlos
+     * @date 2019/12/11 21:47
+     */
+    isSelected(cell, x) {
+        const pendingCell = this.pending[x]
+        if (!pendingCell) {
+            return false
+        }
+        return cell.id === pendingCell.id
+    }
 }
 
 export {

@@ -57,8 +57,26 @@ class Judger {
         this.fenceGroup.eachCell((cell,x,y)=>{
             console.log(this)
             const path=this._findPotentialPath(cell, x, y)
-            console.log(path)
+            // console.log(path)
+            if (!path) {
+                return
+            }
+            const isIn = this._inInDict(path)
+            if (isIn) {
+                this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
+            } else {
+                this.fenceGroup.fences[x].cells[y].status = CellStatus.FORBIDDEN
+            }
         })
+    }
+
+    /**
+     * @description: 查找是否在字典里
+     * @author: ccarlos
+     * @date 2019/12/11 21:22
+     */
+    _inInDict(path) {
+        return this.pathDict.includes(path)
     }
 
     /**
@@ -84,6 +102,9 @@ class Judger {
             if(x===i){
                 //当前行
                 //cell id 1-13
+                if (this.skuPending.isSelected(cell, x)) {
+                    return
+                }
                 const cellCode = this._getCellCode(cell.spec)
                 joiner.join(cellCode)
             }else {
