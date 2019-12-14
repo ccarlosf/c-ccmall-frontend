@@ -37,7 +37,11 @@ class Judger {
             return
         }
         this.skuPending.init(defaultSku)
+        this.judge(null,null,null,true)
         console.log(this.skuPending)
+        //良好的代码 性能偏低
+        //多做了循环
+        //SKU 只遍历一次 fenceGroup
     }
 
     /**
@@ -58,8 +62,11 @@ class Judger {
      * @author: ccarlos
      * @date 2019/12/8 16:57
      */
-    judge(cell, x, y) {
-        this._changeCurrentCellStatus(cell, x, y)
+    judge(cell, x, y,isInit=false) {
+        if(!isInit){
+            this._changeCurrentCellStatus(cell, x, y)
+        }
+
         this.fenceGroup.eachCell((cell,x,y)=>{
             console.log(this)
             const path=this._findPotentialPath(cell, x, y)
