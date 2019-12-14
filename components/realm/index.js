@@ -14,7 +14,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    judger: Object
+    judger: Object,
+    previewImg: String
   },
 
   /**
@@ -46,7 +47,15 @@ Component({
       // fencesGroup.initFences1()
       const judger = new Judger(fencesGroup)
       this.data.judger = judger
-        this.bindInitData(fencesGroup)
+
+      const defaultSku = fencesGroup.getDefaultSku()
+      if (defaultSku) {
+        this.bindSkuData(defaultSku)
+        console.log(defaultSku)
+      } else {
+        this.bindSpuData()
+      }
+      this.bindInitData(fencesGroup)
     }
   },
 
@@ -54,6 +63,35 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    /**
+     * @description: 如果不存在默认sku,初始化绑定spu数据
+     * @author: ccarlos
+     * @date 2019/12/14 23:17
+     */
+    bindSpuData() {
+      const spu = this.properties.spu
+      this.setData({
+        previewImg: spu.img,
+        title:spu.title,
+        price:spu.price,
+        discountPrice:spu.discount_price
+      })
+    },
+
+    /**
+     * @description: 存在默认sku，初始化绑定sku数据
+     * @author: ccarlos
+     * @date 2019/12/14 23:21
+     */
+    bindSkuData(sku) {
+      this.setData({
+        previewImg: sku.img,
+        title:sku.title,
+        price:sku.price,
+        discountPrice:sku.discount_price
+      })
+    },
       /**
        * @description: 绑定fenceGroup初始化数据
        * @author: ccarlos

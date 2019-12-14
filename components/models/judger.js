@@ -37,14 +37,23 @@ class Judger {
             return
         }
         this.skuPending.init(defaultSku)
-        this.skuPending.pending.forEach(cell =>{
-            this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED)
-        })
+        this._initSelectedCell()
         this.judge(null,null,null,true)
         // console.log(this.skuPending)
         //良好的代码 性能偏低
         //多做了循环
         //SKU 只遍历一次 fenceGroup
+    }
+
+    /**
+     * @description: 初始化已经选择规格的状态
+     * @author: ccarlos
+     * @date 2019/12/14 23:10
+    */
+    _initSelectedCell(){
+        this.skuPending.pending.forEach(cell =>{
+            this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED)
+        })
     }
 
     /**
