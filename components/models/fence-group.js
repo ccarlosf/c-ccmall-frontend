@@ -5,6 +5,7 @@
 */
 import {Matrix} from "./matrix";
 import {Fence} from "./fence";
+import {CellStatus} from "../core/enum";
 
 class FenceGroup {
     spu
@@ -34,6 +35,28 @@ class FenceGroup {
         return this.skuList.find(s => s.id === defaultSkuId)
     }
 
+    /**
+     * @description: 根据cellId号改变cell状态
+     * @author: ccarlos
+     * @date 2019/12/14 22:48
+    */
+    setCellStatusById(cellId,status){
+        this.eachCell((cell)=>{
+            if(cell.id===cellId){
+                cell.status = status
+            }
+        })
+    }
+
+    /**
+     * @description: 通过x和y坐标号改变cell状态
+     * @author: ccarlos
+     * @date 2019/12/14 22:49
+    */
+    setCellStatusByXY(x,y,status){
+        this.fences[x].cells[y].status = status
+    }
+    
     /**
      * @description: fences初始化
      * @author: ccarlos

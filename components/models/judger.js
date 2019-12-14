@@ -21,8 +21,8 @@ class Judger {
     */
     constructor(fenceGroup) {
         this.fenceGroup = fenceGroup
-        this._initSkuPending()
         this._initPathDict()
+        this._initSkuPending()
     }
 
     /**
@@ -37,8 +37,11 @@ class Judger {
             return
         }
         this.skuPending.init(defaultSku)
+        this.skuPending.pending.forEach(cell =>{
+            this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED)
+        })
         this.judge(null,null,null,true)
-        console.log(this.skuPending)
+        // console.log(this.skuPending)
         //良好的代码 性能偏低
         //多做了循环
         //SKU 只遍历一次 fenceGroup
@@ -76,9 +79,12 @@ class Judger {
             }
             const isIn = this._inInDict(path)
             if (isIn) {
-                this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
+                // this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
+                this.fenceGroup.setCellStatusByXY(x,y,CellStatus.WAITING)
+
             } else {
-                this.fenceGroup.fences[x].cells[y].status = CellStatus.FORBIDDEN
+                this.fenceGroup.setCellStatusByXY(x,y,CellStatus.FORBIDDEN)
+                // this.fenceGroup.fences[x].cells[y].status = CellStatus.FORBIDDEN
             }
         })
     }
@@ -149,12 +155,14 @@ class Judger {
     _changeCurrentCellStatus(cell, x, y) {
         if (cell.status === CellStatus.WAITING) {
             // cell.status = CellStatus.SELECTED
-            this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
+            this.fenceGroup.setCellStatusByXY(x,y, CellStatus.SELECTED)
+            // this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
             this.skuPending.insertCell(cell, x)
         }
         if (cell.status === CellStatus.SELECTED) {
             // cell.status = CellStatus.WAITING
-            this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
+            this.fenceGroup.setCellStatusByXY(x,y, CellStatus.WAITING)
+            // this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
             this.skuPending.removeCell(x)
         }
     }
