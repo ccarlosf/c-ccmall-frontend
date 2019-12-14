@@ -32,6 +32,12 @@ class Judger {
      */
     _initSkuPending() {
         this.skuPending = new SkuPending()
+        const defaultSku = this.fenceGroup.getDefaultSku()
+        if(!defaultSku){
+            return
+        }
+        this.skuPending.init(defaultSku)
+        console.log(this.skuPending)
     }
 
     /**

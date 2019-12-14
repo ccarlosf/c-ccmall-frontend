@@ -22,6 +22,19 @@ class FenceGroup {
     }
 
     /**
+     * @description: 获取默认Sku
+     * @author: ccarlos
+     * @date 2019/12/14 22:06
+     */
+    getDefaultSku() {
+        const defaultSkuId = this.spu.default_sku_id
+        if (!defaultSkuId) {
+            return
+        }
+        return this.skuList.find(s => s.id === defaultSkuId)
+    }
+
+    /**
      * @description: fences初始化
      * @author: ccarlos
      * @date 2019/11/30 22:38

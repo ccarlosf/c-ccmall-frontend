@@ -3,6 +3,8 @@
  * @author: ccarlos
  * @date 2019/12/10 21:02
 */
+import {Cell} from "./cell";
+
 class SkuPending {
     pending = []
 
@@ -13,6 +15,22 @@ class SkuPending {
     */
     constructor(){
 
+    }
+
+    /**
+     * @description: 初始化skuPending
+     * @author: ccarlos
+     * @date 2019/12/14 22:12
+     */
+    init(sku) {
+        console.log(sku)
+        for(let i = 0 ;i<sku.specs.length;i++){
+            const  cell =new Cell(sku.specs[i])
+            this.insertCell(cell,i)
+        }
+       /* sku.specs.forEach(s => {
+            const cell = new Cell(s)
+        })*/
     }
 
     /**
