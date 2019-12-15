@@ -4,6 +4,7 @@
  * @date 2019/12/10 21:02
 */
 import {Cell} from "./cell";
+import {Joiner} from "../../utils/joiner";
 
 class SkuPending {
     pending = []
@@ -33,6 +34,20 @@ class SkuPending {
        /* sku.specs.forEach(s => {
             const cell = new Cell(s)
         })*/
+    }
+
+    /**
+     * @description: 获取sku code码
+     * @author: ccarlos
+     * @date 2019/12/15 13:59
+    */
+    getSkuCode(){
+        const joiner = new Joiner('#')
+        this.pending.forEach(cell=>{
+            const cellCode = cell.getSkuCode()
+            joiner.join(cellCode)
+        })
+        return joiner.getStr()
     }
 
     /**

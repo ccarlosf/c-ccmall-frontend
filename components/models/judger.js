@@ -109,6 +109,17 @@ class Judger {
     }
 
     /**
+     * @description: 获取确定的sku
+     * @author: ccarlos
+     * @date 2019/12/15 14:13
+    */
+    getDeterminateSku(){
+        const code =this.skuPending.getSkuCode()
+        const sku = this.fenceGroup.getSku(code)
+        return sku
+    }
+
+    /**
      * @description: 查找是否在字典里
      * @author: ccarlos
      * @date 2019/12/11 21:22

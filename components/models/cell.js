@@ -27,9 +27,9 @@ class Cell {
      * @author: ccarlos
      * @date 2019/12/10 21:22
     */
-   /* getCellCode(){
+    getCellCode(){
         return this.spec.key_id + '-' + this.spec.value_id
-    }*/
+    }
 }
 
 export {

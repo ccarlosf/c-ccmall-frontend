@@ -2,6 +2,7 @@
 import {FenceGroup} from "../models/fence-group";
 import {Judger} from "../models/judger";
 import {Spu} from "../../models/spu";
+import {Cell} from "../models/cell";
 
 Component({
   /**
@@ -181,9 +182,12 @@ Component({
      */
     onCellTap(event) {
       // console.log(event)
-      const cell = event.detail.cell
+      const data = event.detail.cell
       const x = event.detail.x
       const y = event.detail.y
+
+      const cell =new Cell(data.spec)
+
       console.log(event.detail)
       const judger = this.data.judger
 

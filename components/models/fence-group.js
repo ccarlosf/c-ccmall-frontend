@@ -36,6 +36,16 @@ class FenceGroup {
     }
 
     /**
+     * @description: 根据skuCode获取sku
+     * @author: ccarlos
+     * @date 2019/12/15 14:15
+    */
+    getSku(skuCode){
+        const sku = this.spu.sku_list.find(s =>s.code ===skuCode)
+        return sku?sku:null
+    }
+
+    /**
      * @description: 根据cellId号改变cell状态
      * @author: ccarlos
      * @date 2019/12/14 22:48
