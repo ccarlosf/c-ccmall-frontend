@@ -1,6 +1,7 @@
 // components/realm/index.js
 import {FenceGroup} from "../models/fence-group";
 import {Judger} from "../models/judger";
+import {Spu} from "../../models/spu";
 
 Component({
   /**
@@ -42,6 +43,14 @@ Component({
       if(!spu){
         return
       }
+      if(Spu.isNoSpec(spu)){
+        this.setData({
+          noSpec:true
+        })
+        this.bindSkuData(spu.sku_list[0])
+        return
+      }
+
       const fencesGroup =new FenceGroup(spu)
       fencesGroup.initFences()
       // fencesGroup.initFences1()
