@@ -89,7 +89,8 @@ Component({
         previewImg: sku.img,
         title:sku.title,
         price:sku.price,
-        discountPrice:sku.discount_price
+        discountPrice:sku.discount_price,
+        stock:sku.stock
       })
     },
       /**
