@@ -37,6 +37,33 @@ class SkuPending {
     }
 
     /**
+     * @description: 获取当前已选规格值
+     * @author: ccarlos
+     * @date 2019/12/15 14:36
+     */
+    getCurrentSpecValues() {
+        const values = this.pending.map(cell => {
+            return cell?cell.spec.value:null
+        })
+        return values
+    }
+
+    /**
+     * @description: 未选中时，获取规格名序号
+     * @author: ccarlos
+     * @date 2019/12/15 14:37
+     */
+    getMissingSpecKeysIndex() {
+        const keysIndex = []
+        for (let i = 0; i < this.size; i++) {
+            if(!this.pending[i]){
+                keysIndex.push(i)
+            }
+        }
+        return keysIndex
+    }
+
+    /**
      * @description: 获取sku code码
      * @author: ccarlos
      * @date 2019/12/15 13:59

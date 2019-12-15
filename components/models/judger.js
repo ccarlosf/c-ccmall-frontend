@@ -35,6 +35,27 @@ class Judger {
     }
 
     /**
+     * @description: 获取当前已选规格值
+     * @author: ccarlos
+     * @date 2019/12/15 14:58
+    */
+    getCurrentValues(){
+        return this.skuPending.getCurrentSpecValues()
+    }
+
+    /**
+     * @description: 未选中时，获取规格名
+     * @author: ccarlos
+     * @date 2019/12/15 14:57
+    */
+    getMissingKeys(){
+        const missingKeysIndex = this.skuPending.getMissingSpecKeysIndex()
+        return missingKeysIndex.map(i=>{
+            return this.fenceGroup.fences[i].title
+        })
+    }
+
+    /**
      * @description: 初始化SkuPending对象
      * @author: ccarlos
      * @date 2019/12/10 21:14
