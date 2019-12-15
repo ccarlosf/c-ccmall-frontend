@@ -1,10 +1,24 @@
 // components/counter/index.js
+
+import {Cart} from "../../models/cart";
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    count:{
+      type:Number,
+      value:Cart.SKU_MIN_COUNT
+    },
+    min:{
+      type:Number,
+      value:Cart.SKU_MIN_COUNT
+    },
+    max:{
+      type:Number,
+      value: Cart.SKU_MAX_COUNT
+    }
   },
 
   /**
@@ -19,5 +33,27 @@ Component({
    */
   methods: {
 
+    /**
+     * @description: 超出购买数量事件触发函数
+     * @author: ccarlos
+     * @date 2019/12/15 20:09
+    */
+    onOverStep(event){
+      const minOrMaxOut =event.detail.type
+      if(minOrMaxOut === 'overflow_max'){
+        wx.showToast({
+          icon:"none",
+          duration:3000,
+          title:'超出最大购买数量'
+        })
+      }
+      if(minOrMaxOut === 'overflow_min'){
+        wx.showToast({
+          icon: "none",
+          duration: 3000,
+          title: `最少需要购买${Cart.SKU_MIN_COUNT}件噢`
+        })
+      }
+    }
   }
 })
