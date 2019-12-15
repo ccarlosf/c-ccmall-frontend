@@ -46,7 +46,7 @@ Component({
       if(Spu.isNoSpec(spu)){
         this.setData({
           noSpec:true,
-          // isSkuIntact:
+          // skuIntact:
         })
         this.bindSkuData(spu.sku_list[0])
         return
@@ -111,7 +111,7 @@ Component({
       bindInitData(fenceGroup){
           this.setData({
             fences: fenceGroup.fences,
-            isSkuIntact: this.data.judger.isSkuIntact()
+            skuIntact: this.data.judger.isSkuIntact()
           })
       },
 
