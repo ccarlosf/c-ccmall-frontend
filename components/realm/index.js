@@ -145,6 +145,7 @@ Component({
      * @date 2019/12/14 23:21
      */
     bindSkuData(sku) {
+      // console.log(sku)
       this.setData({
         previewImg: sku.img,
         title: sku.title,
@@ -160,7 +161,12 @@ Component({
      * @date 2019/12/15 13:39
      */
     bindTipData() {
-      skuIntact: this.data.judger.isSkuIntact()
+      this.setData({
+        skuIntact:this.data.judger.isSkuIntact(),
+        currentValues:this.data.judger.getCurrentValues(),
+        missingKeys:this.data.judger.getMissingKeys()
+      })
+
     },
 
 
@@ -187,8 +193,8 @@ Component({
       const y = event.detail.y
 
       const cell =new Cell(data.spec)
-      console.log(cell)
-      console.log(data)
+      // console.log(cell)
+      // console.log(data)
       cell.status = data.status
 
       // console.log(event.detail)
@@ -197,8 +203,11 @@ Component({
       judger.judge(cell,x,y)
       const skuIntact = judger.isSkuIntact()
       if (skuIntact) {
-
+        const currentSku = judger.getDeterminateSku()
+        console.log(currentSku)
+        this.bindSkuData(currentSku)
       }
+      this.bindTipData()
       this.bindFenceGroupData(judger.fenceGroup)
       /*  this.setData({
           fences: judger.fenceGroup.fences

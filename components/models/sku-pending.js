@@ -71,7 +71,8 @@ class SkuPending {
     getSkuCode(){
         const joiner = new Joiner('#')
         this.pending.forEach(cell=>{
-            const cellCode = cell.getSkuCode()
+            // console.log(cell)
+            const cellCode = cell.getCellCode()
             joiner.join(cellCode)
         })
         return joiner.getStr()

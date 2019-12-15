@@ -41,6 +41,8 @@ class FenceGroup {
      * @date 2019/12/15 14:15
     */
     getSku(skuCode){
+        //TODO code截取
+        skuCode ="2$"+ skuCode
         const sku = this.spu.sku_list.find(s =>s.code ===skuCode)
         return sku?sku:null
     }
