@@ -7,14 +7,15 @@ import {Cell} from "./cell";
 
 class SkuPending {
     pending = []
+    size
 
     /**
      * @description: 构造函数
      * @author: ccarlos
      * @date 2019/12/10 21:03
     */
-    constructor(){
-
+    constructor(size) {
+        this.size = size
     }
 
     /**
@@ -23,7 +24,8 @@ class SkuPending {
      * @date 2019/12/14 22:12
      */
     init(sku) {
-        console.log(sku)
+        this.size = sku.specs.length
+        // console.log(sku)
         for(let i = 0 ;i<sku.specs.length;i++){
             const  cell =new Cell(sku.specs[i])
             this.insertCell(cell,i)
@@ -31,6 +33,32 @@ class SkuPending {
        /* sku.specs.forEach(s => {
             const cell = new Cell(s)
         })*/
+    }
+
+    /**
+     * @description: 判断用户是否已经确认完整的Sku
+     * @author: ccarlos
+     * @date 2019/12/15 10:24
+     */
+    isInIntact() {
+        // if (this.size !== this.pending.length) {
+        //     return false
+        // }
+        for (let i = 0; i < this.size; i++) {
+            if (this._isEmptyPart(i)) {
+                return false
+            }
+        }
+        return true
+    }
+
+    /**
+     * @description: 判断是否空域函数
+     * @author: ccarlos
+     * @date 2019/12/15 10:28
+     */
+    _isEmptyPart(index) {
+        return !this.pending[index]
     }
 
     /**

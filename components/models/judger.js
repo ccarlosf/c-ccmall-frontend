@@ -26,12 +26,22 @@ class Judger {
     }
 
     /**
+     * @description: 判断规格是否完全选中
+     * @author: ccarlos
+     * @date 2019/12/15 10:36
+    */
+    isSkuIntact(){
+        return this.skuPending.isInIntact()
+    }
+
+    /**
      * @description: 初始化SkuPending对象
      * @author: ccarlos
      * @date 2019/12/10 21:14
      */
     _initSkuPending() {
-        this.skuPending = new SkuPending()
+        const specsLength = this.fenceGroup.fences.length
+        this.skuPending = new SkuPending(specsLength)
         const defaultSku = this.fenceGroup.getDefaultSku()
         if(!defaultSku){
             return
