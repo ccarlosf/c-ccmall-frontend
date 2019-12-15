@@ -44,28 +44,31 @@ Component({
         return
       }
       if(Spu.isNoSpec(spu)){
-        this.setData({
-          noSpec:true,
-          // skuIntact:
-        })
-        this.bindSkuData(spu.sku_list[0])
-        return
-      }
-
-      const fencesGroup =new FenceGroup(spu)
-      fencesGroup.initFences()
-      // fencesGroup.initFences1()
-      const judger = new Judger(fencesGroup)
-      this.data.judger = judger
-
-      const defaultSku = fencesGroup.getDefaultSku()
-      if (defaultSku) {
-        this.bindSkuData(defaultSku)
-        console.log(defaultSku)
+        this.processNoSpec(spu)
+        /* this.setData({
+           noSpec:true,
+           // skuIntact:
+         })
+         this.bindSkuData(spu.sku_list[0])
+         return*/
       } else {
-        this.bindSpuData()
+        this.processHasSpec(spu)
       }
-      this.bindInitData(fencesGroup)
+
+      /*  const fencesGroup =new FenceGroup(spu)
+        fencesGroup.initFences()
+        // fencesGroup.initFences1()
+        const judger = new Judger(fencesGroup)
+        this.data.judger = judger
+
+        const defaultSku = fencesGroup.getDefaultSku()
+        if (defaultSku) {
+          this.bindSkuData(defaultSku)
+          console.log(defaultSku)
+        } else {
+          this.bindSpuData()
+        }
+        this.bindInitData(fencesGroup)*/
     }
   },
 
@@ -73,6 +76,52 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+      /**
+       * @description: 绑定fenceGroup初始化数据
+       * @author: ccarlos
+       * @date 2019/12/6 21:20
+      */
+    /*  bindInitData(fenceGroup){
+          this.setData({
+            fences: fenceGroup.fences,
+            skuIntact: this.data.judger.isSkuIntact()
+          })
+      },*/
+
+    /**
+     * @description: 处理无规格时的数据
+     * @author: ccarlos
+     * @date 2019/12/15 13:28
+     */
+    processNoSpec(spu) {
+      this.setData({
+        noSpec: true,
+        // skuIntact:
+      })
+      this.bindSkuData(spu.sku_list[0])
+    },
+
+    /**
+     * @description: 处理有规格时的数据
+     * @author: ccarlos
+     * @date 2019/12/15 13:27
+     */
+    processHasSpec(spu) {
+      const fenceGroup = new FenceGroup(spu)
+      fenceGroup.initFences()
+      const judger = new Judger(fenceGroup)
+      this.data.judger = judger
+
+      const defaultSku = fenceGroup.getDefaultSku()
+      if (defaultSku) {
+        this.bindSkuData(defaultSku)
+      } else {
+        this.bindSpuData()
+      }
+      this.bindTipData()
+      this.bindFenceGroupData(fenceGroup)
+    },
 
     /**
      * @description: 如果不存在默认sku,初始化绑定spu数据
@@ -83,9 +132,9 @@ Component({
       const spu = this.properties.spu
       this.setData({
         previewImg: spu.img,
-        title:spu.title,
-        price:spu.price,
-        discountPrice:spu.discount_price
+        title: spu.title,
+        price: spu.price,
+        discountPrice: spu.discount_price,
       })
     },
 
@@ -97,23 +146,33 @@ Component({
     bindSkuData(sku) {
       this.setData({
         previewImg: sku.img,
-        title:sku.title,
-        price:sku.price,
-        discountPrice:sku.discount_price,
-        stock:sku.stock
+        title: sku.title,
+        price: sku.price,
+        discountPrice: sku.discount_price,
+        stock: sku.stock,
       })
     },
-      /**
-       * @description: 绑定fenceGroup初始化数据
-       * @author: ccarlos
-       * @date 2019/12/6 21:20
-      */
-      bindInitData(fenceGroup){
-          this.setData({
-            fences: fenceGroup.fences,
-            skuIntact: this.data.judger.isSkuIntact()
-          })
-      },
+
+    /**
+     * @description: 绑定提示数据
+     * @author: ccarlos
+     * @date 2019/12/15 13:39
+     */
+    bindTipData() {
+      skuIntact: this.data.judger.isSkuIntact()
+    },
+
+
+    /**
+     * @description: 绑定fenceGroup数据
+     * @author: ccarlos
+     * @date 2019/12/15 13:17
+     */
+    bindFenceGroupData(fenceGroup) {
+      this.setData({
+        fences: fenceGroup.fences,
+      })
+    },
 
     /**
      * @description: 监听onCellTap事件函数
@@ -129,9 +188,14 @@ Component({
       const judger = this.data.judger
 
       judger.judge(cell,x,y)
-      this.setData({
-        fences: judger.fenceGroup.fences
-      })
+      const skuIntact = judger.isSkuIntact()
+      if (skuIntact) {
+
+      }
+      this.bindFenceGroupData(judger.fenceGroup)
+      /*  this.setData({
+          fences: judger.fenceGroup.fences
+        })*/
     }
 
   }
