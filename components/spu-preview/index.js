@@ -52,7 +52,7 @@ Component({
        * @date 2019/11/27 21:31
       */
       onItemTap(event){
-          console.log("点击商品触发函数event"+JSON.stringify(event))
+          // console.log("点击商品触发函数event"+JSON.stringify(event))
           const pid =event.currentTarget.dataset.pid
           wx.navigateTo({
               url: `/pages/detail/detail?pid=${pid}`

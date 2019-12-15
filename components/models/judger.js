@@ -97,7 +97,7 @@ class Judger {
             const skuCode=new SkuCode(s.code)
             this.pathDict=this.pathDict.concat(skuCode.totalSegments)
         })
-        console.log(this.pathDict)
+        // console.log(this.pathDict)
     }
 
     /**
@@ -111,7 +111,7 @@ class Judger {
         }
 
         this.fenceGroup.eachCell((cell,x,y)=>{
-            console.log(this)
+            // console.log(this)
             const path=this._findPotentialPath(cell, x, y)
             // console.log(path)
             if (!path) {
@@ -155,9 +155,9 @@ class Judger {
      * @date 2019/12/8 20:43
      */
     /*_changeOtherCellStatus(cell, x, y) {
-        console.log(this)
+        // console.log(this)
         const path=this._findPotentialPath(cell, x, y)
-        console.log(path)
+        // console.log(path)
     }*/
 
     /**

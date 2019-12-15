@@ -65,7 +65,7 @@ Component({
         const defaultSku = fencesGroup.getDefaultSku()
         if (defaultSku) {
           this.bindSkuData(defaultSku)
-          console.log(defaultSku)
+          // console.log(defaultSku)
         } else {
           this.bindSpuData()
         }
@@ -187,8 +187,11 @@ Component({
       const y = event.detail.y
 
       const cell =new Cell(data.spec)
+      console.log(cell)
+      console.log(data)
+      cell.status = data.status
 
-      console.log(event.detail)
+      // console.log(event.detail)
       const judger = this.data.judger
 
       judger.judge(cell,x,y)

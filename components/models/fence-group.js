@@ -86,7 +86,7 @@ class FenceGroup {
             // fences[currentJ].cells(element)
             fences[currentJ].pushValueTitle(element.value)
         })
-        console.log(fences)
+        // console.log(fences)
     }*/
 
     /**
