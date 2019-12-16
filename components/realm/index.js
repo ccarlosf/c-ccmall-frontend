@@ -182,6 +182,36 @@ Component({
     },
 
     /**
+     * @description: 设置是否缺货状态
+     * @author: ccarlos
+     * @date 2019/12/16 21:55
+    */
+    setStockStatus(stock, currentCount){
+      this.setData({
+        outStock:this.isOutOfStock(stock,currentCount)
+      })
+    },
+
+    /**
+     * @description: 判断是否超出库存
+     * @author: ccarlos
+     * @date 2019/12/16 21:51
+     */
+    isOutOfStock(stock, currentCount) {
+      return stock < currentCount
+    },
+
+    /**
+     * @description: 监听已经数量onSelectCount，事件回调函数
+     * @author: ccarlos
+     * @date 2019/12/16 22:05
+    */
+    onSelectCount(event){
+      const currentCount = event.detail.count
+      // console.log(currentCount)
+    },
+
+    /**
      * @description: 监听onCellTap事件函数
      * @author: ccarlos
      * @date 2019/12/8 20:12
@@ -206,6 +236,7 @@ Component({
         const currentSku = judger.getDeterminateSku()
         console.log(currentSku)
         this.bindSkuData(currentSku)
+        this.setStockStatus(currentSku.stock)
       }
       this.bindTipData()
       this.bindFenceGroupData(judger.fenceGroup)
