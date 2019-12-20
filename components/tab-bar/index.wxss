@@ -1,1 +1,6 @@
 /* components/tab-bar/index.wxss */
+
+.c-ccmall-frontend {
+    font-family: c-ccmall-frontend !important;
+    color: #157658 !important;
+}

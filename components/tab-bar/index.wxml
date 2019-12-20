@@ -2,10 +2,11 @@
 
     <view class="icons">
         <view bind:tap="onGoToHome">
-            <l-icon name="cart" size="80" color="#157658"></l-icon>
+            <l-icon name="home" l-class="c-ccmall-frontend"></l-icon>
         </view>
 
         <view bind:tap="onGoToCart">
+            <l-icon name="cart" size="40" color="#157658"></l-icon>
         </view>
     </view>
 
