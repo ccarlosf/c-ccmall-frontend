@@ -11,11 +11,16 @@
 
     <s-spu-description spu="{{spu}}"></s-spu-description>
 
-    <view wx:if="{{!noSpec}}" class="sku-pending">
-        <text wx:if="{{!skuIntact}}">请选择：</text>
-        <text wx:else>已选：</text>
-        <text wx:if="{{!skuIntact}}">{{missingKeys}}</text>
-        <text wx:else>{{currentValues}}</text>
+    <view wx:if="{{!specs.noSpec}}" class="sku-pending">
+        <view class="specs">
+            <text wx:if="{{!specs.skuIntact}}">请选择：</text>
+            <text wx:else>已选：</text>
+            <text wx:if="{{!specs.skuIntact}}">{{specs.missingKeys}}</text>
+            <text wx:else>{{specs.currentValues}}</text>
+        </view>
+        <view class="arrow-rigth">
+            <l-icon name="right" color="#157658" size="24"></l-icon>
+        </view>
     </view>
 
 </view>

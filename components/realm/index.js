@@ -138,11 +138,20 @@ Component({
      * @date 2019/12/21 22:54
     */
     triggerSpecEvent(){
-      this.triggerEvent('specchange',{
-        skuIntact:this.data.judger.isSkuIntact(),
-        currentValues:this.data.judger.getCurrentValues(),
-        missingKeys:this.data.judger.getMissingKeys()
-      })
+      const noSpec = Spu.isNoSpec(this.properties.spu)
+      if (noSpec) {
+        this.triggerEvent('specchange', {
+          noSpec
+        })
+      }
+      else {
+        this.triggerEvent('specchange', {
+          noSpec: Spu.isNoSpec(this.properties.spu),
+          skuIntact: this.data.judger.isSkuIntact(),
+          currentValues: this.data.judger.getCurrentValues(),
+          missingKeys: this.data.judger.getMissingKeys()
+        })
+      }
     },
 
     /**

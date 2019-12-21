@@ -70,6 +70,16 @@ Page({
   },
 
 
+  /**
+   * @description: 规格选择变动，监听函数
+   * @author: ccarlos
+   * @date 2019/12/21 23:07
+  */
+  onSpecChange(event){
+    this.setData({
+      specs:event.detail
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
