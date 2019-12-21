@@ -2,11 +2,15 @@
 
     <view class="icons">
         <view bind:tap="onGoToHome">
-            <l-icon name="home" l-class="c-ccmall-frontend"></l-icon>
+            <l-icon size="46" name="home" l-class="c-ccmall-frontend"></l-icon>
+            <text>首页</text>
         </view>
 
         <view bind:tap="onGoToCart">
-            <l-icon name="cart" size="40" color="#157658"></l-icon>
+            <l-badge shape="circle" max-count="500" number-type="limit" value="7">
+                <l-icon name="cart" size="44" color="#157658"></l-icon>
+            </l-badge>
+            <text>购物车</text>
         </view>
     </view>
 
