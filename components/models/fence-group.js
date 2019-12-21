@@ -110,7 +110,7 @@ class FenceGroup {
             fences.push(fence)
         })
         this.fences = fences
-        // console.log(fences)
+        console.log(fences)
     }
 
     /**

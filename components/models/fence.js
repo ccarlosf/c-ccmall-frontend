@@ -59,7 +59,7 @@ class Fence {
      */
     setFenceSketch(skuList) {
         this.cells.forEach(c => {
-
+            // this._setCellSkuImg(c, skuList)
         })
     }
 
@@ -68,9 +68,13 @@ class Fence {
      * @author: ccarlos
      * @date 2019/12/21 17:54
      */
-    _setCellSkuImg(cell, skuList) {
-
-    }
+   /* _setCellSkuImg(cell, skuList) {
+        const specCode = cell.getCellCode()
+        const matchSku = skuList.find(s => s.code.includes(specCode))
+        if (matchSku) {
+            cell.skuImg = matchSku.img
+        }
+    }*/
 
     /**
      * @description: 推入规格值至规格数组
