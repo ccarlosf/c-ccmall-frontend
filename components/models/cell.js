@@ -10,6 +10,7 @@ class Cell {
     id
     status = CellStatus.WAITING
     spec
+    skuImg
 
     /**
      * @description: 构造函数

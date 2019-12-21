@@ -53,6 +53,26 @@ class Fence {
     }
 
     /**
+     * @description: 设置fence可视规格
+     * @author: ccarlos
+     * @date 2019/12/21 17:49
+     */
+    setFenceSketch(skuList) {
+        this.cells.forEach(c => {
+
+        })
+    }
+
+    /**
+     * @description: 设置cell的sku图片
+     * @author: ccarlos
+     * @date 2019/12/21 17:54
+     */
+    _setCellSkuImg(cell, skuList) {
+
+    }
+
+    /**
      * @description: 推入规格值至规格数组
      * @author: ccarlos
      * @date 2019/11/30 23:14

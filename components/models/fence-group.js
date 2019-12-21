@@ -104,10 +104,31 @@ class FenceGroup {
         AT.forEach(r=>{
             const fence=new Fence(r)
             fence.init()
+            if(this._hasSketchFence()&&this._isSketchFence(fence.id)){
+                fence.setFenceSketch(this.skuList)
+            }
             fences.push(fence)
         })
         this.fences = fences
         // console.log(fences)
+    }
+
+    /**
+     * @description: 判断是否有可视规格
+     * @author: ccarlos
+     * @date 2019/12/21 17:45
+    */
+    _hasSketchFence(){
+        return this.spu.sketch_spec_id?true:false
+    }
+
+    /**
+     * @description: 判断当前规格是否是可视规格
+     * @author: ccarlos
+     * @date 2019/12/21 17:43
+    */
+    _isSketchFence(fenceId){
+        return this.spu.sketch_spec_id === fenceId?true:false
     }
 
     /**
