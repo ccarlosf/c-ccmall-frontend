@@ -132,6 +132,19 @@ Component({
     },
 
     /**
+     * @description: 抛出自定义事件 获取已经规格
+     * @author: ccarlos
+     * @date 2019/12/21 22:54
+    */
+    triggerSpecEvent(){
+      this.triggerEvent('specchange',{
+        skuIntact:this.data.judger.isSkuIntact(),
+        currentValues:this.data.judger.getCurrentValues(),
+        missingKeys:this.data.judger.getMissingKeys()
+      })
+    },
+
+    /**
      * @description: 如果不存在默认sku,初始化绑定spu数据
      * @author: ccarlos
      * @date 2019/12/14 23:17
