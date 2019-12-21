@@ -7,7 +7,7 @@
         </view>
 
         <view bind:tap="onGoToCart">
-            <l-badge shape="circle" max-count="500" number-type="limit" value="7">
+            <l-badge value="777">
                 <l-icon name="cart" size="44" color="#157658"></l-icon>
             </l-badge>
             <text>购物车</text>
@@ -15,9 +15,10 @@
     </view>
 
     <view bind:tap="onAddToCart" class="cart btn-font">
+        <text>加入购物车</text>
     </view>
 
     <view bind:tap="onBuy" class="buy btn-font">
-
+        <text>历史购买</text>
     </view>
 </view>
