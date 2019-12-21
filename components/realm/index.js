@@ -58,6 +58,7 @@ Component({
       } else {
         this.processHasSpec(spu)
       }
+      this.triggerSpecEvent()
 
       /*  const fencesGroup =new FenceGroup(spu)
         fencesGroup.initFences()
@@ -265,6 +266,7 @@ Component({
       }
       this.bindTipData()
       this.bindFenceGroupData(judger.fenceGroup)
+      this.triggerSpecEvent()
       /*  this.setData({
           fences: judger.fenceGroup.fences
         })*/

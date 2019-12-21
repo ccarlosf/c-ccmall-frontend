@@ -22,7 +22,7 @@
 
 
 <l-popup content-align="bottom" show="{{showRealm}}">
-    <s-realm order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
+    <s-realm bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
 </l-popup>
 
 <s-tabbar class="tabbar" bind:gotohome="onGoToHome"
