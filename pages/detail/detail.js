@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 import {Spu} from "../../models/spu";
+import {ShoppingWay} from "../../components/core/enum";
 
 Page({
 
@@ -29,7 +30,8 @@ Page({
   */
   onAddToCart(event){
     this.setData({
-      showRealm:true
+      showRealm:true,
+      orderWay:ShoppingWay.CART
     })
   },
 
@@ -40,9 +42,34 @@ Page({
    */
   onBuy(event){
     this.setData({
-      showRealm:true
+      showRealm:true,
+      orderWay:ShoppingWay.BUY
     })
   },
+
+  /**
+   * @description: 点击首页图标，跳转函数
+   * @author: ccarlos
+   * @date 2019/12/21 16:44
+  */
+  onGotoHome(event){
+    wx.switchTab({
+      url:'/pages/home/home'
+    })
+  },
+
+  /**
+   * @description: 点击购物车图标，跳转函数
+   * @author: ccarlos
+   * @date 2019/12/21 16:44
+   */
+  onGotoCart(event){
+    wx.switchTab({
+      url:'/pages/cart/cart'
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

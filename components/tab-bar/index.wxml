@@ -19,6 +19,6 @@
     </view>
 
     <view bind:tap="onBuy" class="buy btn-font">
-        <text>历史购买</text>
+        <text>立即购买</text>
     </view>
 </view>
