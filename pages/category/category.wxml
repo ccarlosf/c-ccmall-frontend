@@ -13,7 +13,15 @@
         </l-button>
     </view>
     <view class="main">
-        <view></view>
+        <l-segment
+                item-height="90"
+                placement="left">
+            <l-segment-item key="1" tab="唐门"></l-segment-item>
+            <l-segment-item key="2" tab="唐门"></l-segment-item>
+            <l-segment-item key="3" tab="唐门"></l-segment-item>
+            <l-segment-item key="4" tab="唐门"></l-segment-item>
+            <l-segment-item key="5" tab="唐门"></l-segment-item>
+        </l-segment>
         <view></view>
     </view>
 </view>
