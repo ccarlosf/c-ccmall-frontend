@@ -14,7 +14,13 @@
     </view>
     <view class="main">
         <l-segment
+                height="800"
                 item-height="90"
+                even="{{false}}"
+                width="160"
+                l-active-class="segment-item-active"
+                l-inactive-class="segment-item"
+                l-line-class="l-seg-line"
                 placement="left">
             <l-segment-item key="1" tab="唐门"></l-segment-item>
             <l-segment-item key="2" tab="唐门"></l-segment-item>
