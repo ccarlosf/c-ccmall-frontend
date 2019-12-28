@@ -14,7 +14,7 @@
     </view>
     <view class="main">
         <l-segment
-                height="800"
+                height="{{segHeight}}"
                 item-height="90"
                 even="{{false}}"
                 width="160"

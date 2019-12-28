@@ -1,4 +1,6 @@
 // pages/category/category.js
+import {getSystemSize} from "../../utils/system";
+
 Page({
 
   /**
@@ -11,8 +13,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+      const res = await getSystemSize()
+      const h = res.windowHeight - 60 - 20 - 2
+      this.setData({
+          segHeight:h
+      })
   },
 
   /**
