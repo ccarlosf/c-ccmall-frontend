@@ -1,5 +1,6 @@
 // pages/category/category.js
 import {getSystemSize} from "../../utils/system";
+import {px2rpx} from "../../miniprogram_npm/lin-ui/utils/util";
 
 Page({
 
@@ -15,10 +16,17 @@ Page({
    */
   onLoad: async function (options) {
       const res = await getSystemSize()
-      const h = res.windowHeight - 60 - 20 - 2
+      const windowHeightHpx = px2rpx(res.windowHeight)
+      const h = windowHeightHpx - 60 - 20 - 2
       this.setData({
           segHeight:h
       })
+
+      // rate
+
+      // 750rpx                    x
+      //-----------------  =  ------------------
+      // res.screenWidth       res.windowHeight
   },
 
   /**
