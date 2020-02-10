@@ -9,13 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-      defaultRootId: 2
+      defaultRootId: 3
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+      this.initCategoryData()
       this.setDynamicSegmentHeight()
       // rate
 
@@ -35,7 +36,7 @@ Page({
 
         await categories.getAll()
         const roots = categories.getRoots()
-        const defaultRoot = this.getDefaultRoot()
+        const defaultRoot = this.getDefaultRoot(roots)
         const currentSubs = categories.getSubs(defaultRoot.id)
         this.setData({
             roots,

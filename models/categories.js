@@ -3,6 +3,8 @@
  * @author: ccarlos
  * @date: 2020/2/10 19:54
  */
+import {Http} from "../utils/Http";
+
 class Categories {
     roots = []
     subs = []
@@ -34,8 +36,9 @@ class Categories {
      * @author: ccarlos
      * @date: 2020/2/10 19:58
      */
-    getSubs(rootId) {
-        return this.roots.find(r => r.id === rootId)
+    getSubs(parentId) {
+        return this.subs.filter(sub=>sub.parent_id == parentId)
+        // return this.roots.find(r => r.id === rootId)
     }
 }
 export {
