@@ -2,6 +2,7 @@
 import {getSystemSize} from "../../utils/system";
 import {px2rpx} from "../../miniprogram_npm/lin-ui/utils/util";
 import {Categories} from "../../models/categories";
+import {SpuListType} from "../../components/core/enum";
 
 Page({
 
@@ -85,6 +86,19 @@ Page({
         this.setData({
             currentSubs,
             currentBannerImg:currentRoot.img
+        })
+    },
+
+    /**
+     * @description: 跳转到spuList
+     * @author: ccarlos
+     * @date: 2020/2/10 22:19
+     */
+    onJumpToSpuList(event) {
+        const cid = event.detail.cid;
+
+        wx.navigateTo({
+            url: `/pages/spu-list/spu-list?cid=${cid}&type=${SpuListType.SUB_CATEGORY}`
         })
     },
 

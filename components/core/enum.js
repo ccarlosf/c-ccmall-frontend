@@ -19,9 +19,23 @@ const ShoppingWay={
     BUY:'buy'
 }
 
+/**
+ * @description: spu列表类型枚举
+ * @author: ccarlos
+ * @date: 2020/2/10 22:21
+ */
+const SpuListType = {
+    THEME: 'theme',
+    ROOT_CATEGORY: 'root_category',
+    SUB_CATEGORY: 'sub_category',
+    LATEST: 'latest'
+}
+
+
 
 
 export {
     CellStatus,
-    ShoppingWay
+    ShoppingWay,
+    SpuListType
 }
