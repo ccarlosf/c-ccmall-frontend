@@ -72,6 +72,22 @@ Page({
         })
     },
 
+    /**
+     * @description: 切换分类事件
+     * @author: ccarlos
+     * @date: 2020/2/10 21:45
+     */
+    onSegChange(event){
+        const rootId = event.detail.activeKey
+        const currentSubs = this.data.categories.getSubs(rootId)
+        const currentRoot = this.data.categories.getRoot(rootId)
+
+        this.setData({
+            currentSubs,
+            currentBannerImg:currentRoot.img
+        })
+    },
+
   /**
    * @description: 点击搜索按钮，跳转到搜索页面
    * @author: ccarlos

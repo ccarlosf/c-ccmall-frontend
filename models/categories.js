@@ -32,6 +32,15 @@ class Categories {
     }
 
     /**
+     * @description: 获取一级分类
+     * @author: ccarlos
+     * @date: 2020/2/10 21:59
+     */
+    getRoot(rootId){
+        return this.roots.find(r=>r.id == rootId)
+    }
+
+    /**
      * @description: 获取二级分类
      * @author: ccarlos
      * @date: 2020/2/10 19:58
