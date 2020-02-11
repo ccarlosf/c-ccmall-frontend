@@ -32,7 +32,12 @@ Page({
    * @date: 2020/2/10 23:12
    */
   async onSearch(event) {
-    const keyword = event.detail.value
+    this.setData({
+      search:true,
+      items:[]
+    })
+    const keyword = event.detail.value || event.detail.name
+    // const keyword = event.detail.name
     history.save(keyword)
 
     this.setData({
@@ -41,6 +46,18 @@ Page({
 
     const paging = Search.search(keyword)
     const data = await paging.getMoreData()
+    this.bindItems(data)
+  },
+
+  /**
+   * @description: 取消搜索
+   * @author: ccarlos
+   * @date: 2020/2/11 22:38
+   */
+  onCancel(event){
+    this.setData({
+      search:false
+    })
   },
 
   /**

@@ -8,6 +8,7 @@ page{
 }
 
 .header{
+    background-color: #ffffff;
     border-bottom: 1px solid #f3f3f3;
     padding-bottom: 14rpx;
     position: fixed;

@@ -4,6 +4,7 @@
             maxlength="9"
             bg-clolor="f1f1f1"
             bind:linconfirm="onSearch"
+            bind:lincancel = "onCancel"
             placeholder="输入商品名称">
 
     </l-search-bar>
@@ -22,7 +23,8 @@
             </view>
             <view class="history-tags">
                 <block wx:for="{{historyTags}}" wx:key="{{index}}">
-                    <l-tag l-class="tag" name="{{item}}">
+                    <l-tag  bind:lintap="onSearch"
+                            l-class="tag" name="{{item}}">
                         {{item}}
                     </l-tag>
                 </block>
@@ -36,7 +38,8 @@
             </view>
             <view class="history-tags">
                 <block wx:for="{{hotTags}}" wx:key="{{index}}">
-                    <l-tag select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
+                    <l-tag  bind:lintap="onSearch"
+                            select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
                         {{item.title}}
                     </l-tag>
                 </block>
@@ -45,7 +48,7 @@
     </view>
     <view wx:else>
         <block wx:for="{{items}}">
-
+            <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
         </block>
     </view>
 </view>
