@@ -10,7 +10,12 @@ class HistoryKeyword{
     keywords = []
 
     constructor(){
+        if(typeof  HistoryKeyword.instance === 'object'){
+            return HistoryKeyword.instance
+        }
         this.keywords = this._getLocalKeywords()
+        HistoryKeyword.instance = this
+        return this
     }
 
 // 不存在实例属性
@@ -78,4 +83,8 @@ class HistoryKeyword{
         }
         return keywords
     }
+}
+
+export {
+    HistoryKeyword
 }
