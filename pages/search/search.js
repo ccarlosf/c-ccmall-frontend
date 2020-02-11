@@ -1,6 +1,8 @@
 // pages/search/search.js
 import {HistoryKeyword} from "../../models/history-keyword";
 import {Tag} from "../../models/tag";
+import {Search} from "../../models/search";
+import {Paging} from "../../utils/paging";
 
 const history = new HistoryKeyword()
 Page({
@@ -29,13 +31,29 @@ Page({
    * @author: ccarlos
    * @date: 2020/2/10 23:12
    */
-  onSearch(event){
+  async onSearch(event) {
     const keyword = event.detail.value
     history.save(keyword)
 
     this.setData({
-      historyTags:history.get()
+      historyTags: history.get()
     })
+
+    const paging = Search.search(keyword)
+    const data = await paging.getMoreData()
+  },
+
+  /**
+   * @description: 绑定商品搜索数据
+   * @author: ccarlos
+   * @date: 2020/2/11 22:14
+   */
+  bindItems(data) {
+    if(data.accumulator.length!==0){
+      this.setData({
+        items:data.accumulator
+      })
+    }
   },
 
   /**

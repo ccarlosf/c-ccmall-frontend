@@ -10,7 +10,7 @@
 </view>
 
 <view class="container">
-    <view>
+    <view wx:if="{{!search}}">
         <view wx:if="{{historyTags.length !==0 }}" class="history-container">
             <view class="history-title">
                 <view class="slide"></view>
@@ -28,20 +28,24 @@
                 </block>
             </view>
         </view>
+        <view class="history-container">
+            <view class="history-title">
+                <view class="slide"></view>
+                <text>热门搜索</text>
+                <view style="flex:1"></view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}" wx:key="{{index}}">
+                    <l-tag select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
+                        {{item.title}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
     </view>
+    <view wx:else>
+        <block wx:for="{{items}}">
 
-    <view class="history-container">
-        <view class="history-title">
-            <view class="slide"></view>
-            <text>热门搜索</text>
-            <view style="flex:1"></view>
-        </view>
-        <view class="history-tags">
-            <block wx:for="{{hotTags}}" wx:key="{{index}}">
-                <l-tag select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
-                    {{item.title}}
-                </l-tag>
-            </block>
-        </view>
+        </block>
     </view>
 </view>
